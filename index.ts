@@ -1,6 +1,6 @@
 var abc = 'hello';
 var xyz:number = 23;
-var dataa = "helo" 
+var dataa = "Alekhya" 
 console.log(dataa)
 
 document.write(`${abc} -- ${xyz} -- ${dataa}`)
@@ -8,11 +8,7 @@ document.write(`${abc} -- ${xyz} -- ${dataa}`)
 var arr:number[]= [10,12,34]
 document.write(`<br>${arr[0]} , ${arr[2]} , ${arr[1]}`)
 
-let arr1:any[];
-arr1[0] = 232
-arr1[1] = 'alie'
-arr1[2] = true
-console.log(`${arr1[0]} ${arr1[1]}`)
+
 
 
 var vals = [10,"A",68,84,'dfg',true,false,"Alekhya"]
@@ -30,10 +26,24 @@ const keyss:{
             return this.c*4
         },
         print:function(){
-            console.log(`A:${this.a} <br> B:${this.b} <br> ${this.c} <br> ${this.d()} `)
+            document.write(`A:${this.a} \n B:${this.b} \n ${this.c} \n ${this.d()} \n`)
         }      
 }
 keyss.print();
 
+var vals:any[] = new Array();
+vals[0] = 10;
+vals[1]= 'A'
+vals[2] = true 
+document.write(`${vals[0]},${vals[1]},${vals[2]}`)
 
 
+
+var uName:string|null;
+//uName = prompt('enter name')
+//if (uName){
+  //  console.log('thank you')
+//}
+//else{
+  //  console.log('try again')
+//}
