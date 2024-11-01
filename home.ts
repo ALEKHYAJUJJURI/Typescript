@@ -27,7 +27,7 @@ mapVals.set(2,`<b>GangaChari</b><br>`)
 console.log(mapVals.get(1))
 console.log(mapVals.get(2))
 
-let passWord:string = 'AlEkhya23'; 
+let passWord:string = 'akhya23'; 
 let pattern:RegExp = /(?=.*[A-Z])\w{5,20}/;
 if(passWord.match(pattern)){
     console.log('Login Success')
@@ -59,4 +59,96 @@ function RestParameters(...products:any[]):void{
 
 }
 RestParameters(111,"aliee",true,4000)
+//Contracts is to define rules to design an component
+// Interface is used to define a contract
+// contract can have extended contract 
+//contract can have readonly rules,optional rules
 
+interface Iproduct{
+    Id:number;
+    Name:string;
+    Stock:boolean;
+    Quantity : number;
+    Price:number;
+    Total(): number;
+    Print():void;
+    readonly Description :string
+} 
+ 
+interface Ivendor extends Iproduct {
+    Id:number;
+    Name:string;
+    Stock:boolean;
+    Quantity : number;
+    Price:number;
+    Total(): number;
+    Print():void;
+    readonly Description :string,
+    vendor : number
+}
+var details:Ivendor = {
+    Id:1,
+    Name:'mobile',
+    Stock : true,
+    Quantity : 3,
+    Price : 10000,
+    Total : function(){
+        return this.Quantity*this.Price
+    },
+    Print : function(){ 
+        console.log(`${this.Id} ${this.Name} ${this.Price} ${this.Stock} ${this.Total()} ${this.Quantity} ${this.Description} ${this.vendor}`)
+    },
+    Description:"loredk",
+    vendor:200
+}
+
+details.Print()
+
+
+interface IEmployee{
+    UName:string;
+    Password:string;
+}
+class Company implements IEmployee{
+    public UName: string = "Alekhya";
+    public Password: string = "Alekhya_970"; 
+}
+let obj = new Company
+console.log(obj.Password)
+
+interface Product{
+    Id:number;
+    Price:number;
+    Name:string;
+    Print():void;
+}
+abstract class ProductTemp implements Product{
+    public Id: number = 0;
+    public Price: number = 0;
+    public Name: string = '';
+     public abstract Print(): void 
+}
+class ProdDeltails extends ProductTemp {
+    Id = 2;
+    Name = 'ale';
+    Price = 2300; 
+     Print(){
+        console.log(`${this.Id} ${this.Name} ${this.Price}`)
+     } 
+}
+let ob = new ProdDeltails();
+ob.Print()
+console.log(ob.Price)
+
+//Generic functions
+//generics will not allow operators 
+//you have to handle using methods and functions
+
+function Sum(a:any,b:any){
+    return a+b
+}
+function Print<T>(a:T,b:T){
+    return Sum(a,b);  
+}
+console.log(Print<number>(2,6))
+console.log(Print<string>('AB','CD'))
